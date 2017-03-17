@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import {browserHistory} from 'react-router';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
-
+import { browserHistory } from 'react-router';
 
 const style = {
     margin: 12,
@@ -16,7 +14,7 @@ const style = {
         display: 'inline-block',
     },
 };
-export class AddContact extends Component {
+export default class AddContact extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,18 +45,16 @@ export class AddContact extends Component {
         }
     }
     handleClose = () => {
-         browserHistory.push('/');
+        browserHistory.push('/');
     };
     renderContact() {
         return this.state.items.map((item, i) => (
-            <TableRow key={i} >
-                <TableRowColumn style={{ textAlign: 'center' }}>{item.firstName}</TableRowColumn>
-                <TableRowColumn style={{ textAlign: 'center' }}>{item.lastName}</TableRowColumn>
-                <TableRowColumn style={{ textAlign: 'center' }}>{item.email}</TableRowColumn>
-            </TableRow>
-        ))
-
-
+            <ul key={i} >
+                <li className="item">{item.firstName}</li>
+                <li className="item">{item.lastName}</li>
+                <li className="item">{item.email}</li>
+        </ul>
+        ));
     }
     render() {
         return (
@@ -70,12 +66,14 @@ export class AddContact extends Component {
                             hintText="FirstName"
                             floatingLabelText="FirstName"
                             onChange={(e) => this.setState({ firstName: e.target.value })}
+                            name="firstName"
                             value={this.state.firstName}
                         /><br />
                         <TextField
                             hintText="LastName"
                             floatingLabelText="LastName"
                             onChange={(e) => this.setState({ lastName: e.target.value })}
+                            name="lastName"
                             value={this.state.lastName}
                         /><br />
                         <TextField
@@ -83,28 +81,20 @@ export class AddContact extends Component {
                             hintText="Email"
                             floatingLabelText="Email"
                             onChange={(e) => this.setState({ email: e.target.value })}
+                            name="email"
                             value={this.state.email}
                         /><br /><br />
                         <RaisedButton label="Save" type="submit" primary={true} style={style} />
-                        <RaisedButton label="Cancel" secondary={true} style={style} onTouchTap={this.handleClose} />
+                        <RaisedButton label="Cancel" secondary={true} style={style} onClick={this.handleClose} />
                     </form>
                 </Paper>
-
-                <Paper style={style.style} zDepth={5}>
-                    <Table >
-                        <TableHeader displaySelectAll={false}>
-                            <TableRow >
-                                <TableHeaderColumn>FirstName</TableHeaderColumn>
-                                <TableHeaderColumn>LastName</TableHeaderColumn>
-                                <TableHeaderColumn>Email</TableHeaderColumn>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody displayRowCheckbox={false}>
-                            {this.renderContact()}
-                        </TableBody>
-                    </Table>
-                </Paper>
-
+                {
+                    this.state.items &&
+                    <Paper style={style.style} zDepth={5}>
+                        {this.renderContact()}
+                    </Paper>
+                    
+                }
             </div>
         );
     }

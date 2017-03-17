@@ -6,19 +6,21 @@ import { Router, Route, browserHistory } from 'react-router';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
+// muiTheme={getMuiTheme(darkBaseTheme)}
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 import About from './about/about';
 import Contact from './contact/contact';
 
 ReactDOM.render(
-  <MuiThemeProvider>
+  <MuiThemeProvider >
     <Router history={browserHistory} muiTheme={getMuiTheme(darkBaseTheme)}>
       <Route path="/" component={App}>
         <Route path="about" component={About} />
         <Route path="/contact" component={Contact} />
-        
       </Route>
     </Router>
-  </MuiThemeProvider>,
+    </MuiThemeProvider>
+  ,
   document.getElementById('root')
 );
