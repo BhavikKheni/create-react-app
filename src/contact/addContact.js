@@ -49,10 +49,10 @@ export default class AddContact extends Component {
     };
     renderContact() {
         return this.state.items.map((item, i) => (
-            <ul key={i} >
-                <li className="item">{item.firstName}</li>
-                <li className="item">{item.lastName}</li>
-                <li className="item">{item.email}</li>
+            <ul key={i} id="item">
+                <li>{item.firstName}</li>
+                <li>{item.lastName}</li>
+                <li>{item.email}</li>
         </ul>
         ));
     }
@@ -67,6 +67,7 @@ export default class AddContact extends Component {
                             floatingLabelText="FirstName"
                             onChange={(e) => this.setState({ firstName: e.target.value })}
                             name="firstName"
+                            id="firstName"
                             value={this.state.firstName}
                         /><br />
                         <TextField
@@ -74,6 +75,7 @@ export default class AddContact extends Component {
                             floatingLabelText="LastName"
                             onChange={(e) => this.setState({ lastName: e.target.value })}
                             name="lastName"
+                            id="lastName"
                             value={this.state.lastName}
                         /><br />
                         <TextField
@@ -82,9 +84,10 @@ export default class AddContact extends Component {
                             floatingLabelText="Email"
                             onChange={(e) => this.setState({ email: e.target.value })}
                             name="email"
+                            id="email"
                             value={this.state.email}
                         /><br /><br />
-                        <RaisedButton label="Save" type="submit" primary={true} style={style} />
+                        <RaisedButton label="Save" type="submit" id="button" primary={true} style={style} />
                         <RaisedButton label="Cancel" secondary={true} style={style} onClick={this.handleClose} />
                     </form>
                 </Paper>
