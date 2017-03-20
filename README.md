@@ -11,6 +11,7 @@ Features
 Create application with create-react-app tool. Almost zero configuration to run react app.
 React Component unit testing using jest.
 
+
 Jasmine integration with WebdriverIO end to end test.
 
 start your first application.
@@ -21,4 +22,4 @@ How to run the unit test (React Component).
 
 How to run the end to end test
 
--yarn run test:e2e
+yarn run test:e2e
