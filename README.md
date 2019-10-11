@@ -1,25 +1,28 @@
-create-react-app .
+## create-react-app
 
-create-react-app project, which demonstrate how to do end-to-end (jasmine ), unit testing front end application. WebdriverIO, Jest (TDD) and Selenium Webdriver.
+This project demonstrate how to do end-to-end, Unit testing in your react frontend application. Using Jasmine, WebdriverIO, Jest (TDD) and Selenium Webdriver tools.
 
-Quick start:
+### Quick start:
 
-clone the repo
-Then: npm install
+```bash
+$ git clone https://github.com/hsbalar/create-react-app.git
 
-Features
-Create application with create-react-app tool. Almost zero configuration to run react app.
-React Component unit testing using jest.
+$ npm install
 
+```
 
-Jasmine integration with WebdriverIO end to end test.
+### Features:
+ * Create application with create-react-app tool.
+ * Almost zero configuration to run react app.
+ * React Component unit testing using jest.
+ * Jasmine integration with WebdriverIO end to end test.
 
-start your first application.
+### Start your first application.
 
-How to run the unit test (React Component).
+##### How to run the unit test (React Component).
 
-- yarn test.
+```yarn test```
 
-How to run the end to end test
+#### How to run the end to end test.
 
-yarn run test:e2e
+```yarn run test:e2e```
